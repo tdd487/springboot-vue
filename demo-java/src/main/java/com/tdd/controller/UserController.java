@@ -26,7 +26,7 @@ public class UserController {
      * @param queryDTO
      * @return
      */
-    @PostMapping("/api/user/list")
+    @PostMapping("/apioo/user/list")
     public Result userList(@RequestBody QueryDTO queryDTO){
         return new Result(200,"",userService.selectUserPage(queryDTO));
     }

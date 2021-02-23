@@ -4,6 +4,7 @@ import com.tdd.dto.LoginDTO;
 import com.tdd.result.Result;
 import com.tdd.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +24,7 @@ public class LoginController {
       return loginService.login(loginDTO);
     }
 
-    @PostMapping(value = "/api/hello")
+    @GetMapping(value = "/apioo/hello")
     public Result hello(){
         return new Result(200,"hello","world");
     }
