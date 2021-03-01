@@ -12,6 +12,15 @@ public class QueryDTO {
     private String keyword;    //关键字
 
     private Integer id;//文章id
+    private String code;//用户临时code
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 
     public Integer getId() {
         return id;

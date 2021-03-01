@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tdd.mapper.UserInfoMapper">
+
+    <insert id="insertUserInfo">
+        INSERT INTO user_info(
+        nick_name,
+        avatar_url,
+        gender,
+        country,
+        province,
+        city,
+        language
+        ) VALUES (
+        #{userInfo.nickName},
+        #{userInfo.avatarUrl},
+        #{userInfo.gender},
+        #{userInfo.country},
+        #{userInfo.province},
+        #{userInfo.city},
+        #{userInfo.language}
+        )
+    </insert>
+</mapper>
