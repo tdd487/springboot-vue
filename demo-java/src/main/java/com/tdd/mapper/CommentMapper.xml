@@ -11,6 +11,6 @@
     </select>
 
     <insert id="saveComment">
-        insert into comment(user_id,article_id,)
+        insert into comment(user_id,article_id,comment_content) value (#{comment.userId},#{comment.articleId},#{comment.commentContent})
     </insert>
 </mapper>

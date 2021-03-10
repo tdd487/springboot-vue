@@ -21,4 +21,8 @@
         #{userInfo.language}
         )
     </insert>
+
+    <select id="selectByNickName" resultType="com.tdd.entity.UserInfo">
+        select * from user_info where nick_name = #{userInfo.nickName}
+    </select>
 </mapper>

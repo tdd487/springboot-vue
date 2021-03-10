@@ -15,12 +15,12 @@ public class Comment {
     private Integer id;
     private String userId;
     private String articleId;
-    private Integer commentContent;
+    private String commentContent;
 
     public Comment() {
     }
 
-    public Comment(Integer id, String userId, String articleId, Integer commentContent) {
+    public Comment(Integer id, String userId, String articleId, String commentContent) {
         this.id = id;
         this.userId = userId;
         this.articleId = articleId;
@@ -51,11 +51,11 @@ public class Comment {
         this.articleId = articleId;
     }
 
-    public Integer getCommentContent() {
+    public String getCommentContent() {
         return commentContent;
     }
 
-    public void setCommentContent(Integer commentContent) {
+    public void setCommentContent(String commentContent) {
         this.commentContent = commentContent;
     }
 

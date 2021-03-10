@@ -14,4 +14,6 @@ import org.apache.ibatis.annotations.Param;
 public interface UserInfoMapper extends BaseMapper<UserInfo> {
 
     int insertUserInfo(@Param("userInfo") UserInfo userInfo);
+
+    UserInfo selectByNickName(@Param("userInfo") UserInfo userInfo);
 }

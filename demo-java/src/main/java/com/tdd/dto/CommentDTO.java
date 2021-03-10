@@ -11,7 +11,7 @@ public class CommentDTO {
     private Integer id;
     private String userId;
     private String articleId;
-    private Integer commentContent;
+    private String commentContent;
 
     public Integer getId() {
         return id;
@@ -37,11 +37,11 @@ public class CommentDTO {
         this.articleId = articleId;
     }
 
-    public Integer getCommentContent() {
+    public String getCommentContent() {
         return commentContent;
     }
 
-    public void setCommentContent(Integer commentContent) {
+    public void setCommentContent(String commentContent) {
         this.commentContent = commentContent;
     }
 }

@@ -55,7 +55,6 @@ public class ArticleController {
         return new Result(200,"",userInfoService.addUserInfo(userInfo));
     }
 
-
     @PostMapping("wormer_api/jscode2session")
     public Result jscode2session(@RequestBody QueryDTO queryDTO) throws Exception {
         String code = queryDTO.getCode();

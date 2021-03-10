@@ -20,6 +20,6 @@ public interface CommentMapper extends BaseMapper<Comment> {
     List<Comment> selectAll();
     List<Comment> selectByArticleId(@Param("Comment") Comment comment);
 
-    int saveComment(@Param("Comment") Comment comment);
+    int saveComment(@Param("comment") Comment comment);
 
 }
