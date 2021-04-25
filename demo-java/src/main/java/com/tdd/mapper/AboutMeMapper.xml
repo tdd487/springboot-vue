@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tdd.mapper.AboutMeMapper">
+  <resultMap id="BaseResultMap" type="com.tdd.entity.AboutMe">
+    <!--@Table about_me-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="current_state" jdbcType="VARCHAR" property="currentState" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="work_date" jdbcType="TIMESTAMP" property="workDate" />
+    <result column="live_city" jdbcType="VARCHAR" property="liveCity" />
+    <result column="registered" jdbcType="VARCHAR" property="registered" />
+    <result column="political_outlook" jdbcType="VARCHAR" property="politicalOutlook" />
+    <result column="photo" jdbcType="VARCHAR" property="photo" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+    <result column="skill" jdbcType="LONGVARCHAR" property="skill" />
+    <result column="work_experience" jdbcType="LONGVARCHAR" property="workExperience" />
+    <result column="call_me" jdbcType="VARCHAR" property="callMe" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_name, sex, current_state, birthday, work_date, live_city, registered, political_outlook, 
+    photo, email, wechat, skill, work_experience, call_me
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from about_me
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from about_me
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tdd.entity.AboutMe">
+    insert into about_me (id, user_name, sex, 
+      current_state, birthday, work_date, 
+      live_city, registered, political_outlook, 
+      photo, email, wechat, 
+      skill, work_experience, call_me
+      )
+    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, 
+      #{currentState,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, #{workDate,jdbcType=TIMESTAMP}, 
+      #{liveCity,jdbcType=VARCHAR}, #{registered,jdbcType=VARCHAR}, #{politicalOutlook,jdbcType=VARCHAR}, 
+      #{photo,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
+      #{skill,jdbcType=LONGVARCHAR}, #{workExperience,jdbcType=LONGVARCHAR}, #{callMe,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tdd.entity.AboutMe">
+    insert into about_me
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="currentState != null">
+        current_state,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="workDate != null">
+        work_date,
+      </if>
+      <if test="liveCity != null">
+        live_city,
+      </if>
+      <if test="registered != null">
+        registered,
+      </if>
+      <if test="politicalOutlook != null">
+        political_outlook,
+      </if>
+      <if test="photo != null">
+        photo,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="wechat != null">
+        wechat,
+      </if>
+      <if test="skill != null">
+        skill,
+      </if>
+      <if test="workExperience != null">
+        work_experience,
+      </if>
+      <if test="callMe != null">
+        call_me,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="currentState != null">
+        #{currentState,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workDate != null">
+        #{workDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="liveCity != null">
+        #{liveCity,jdbcType=VARCHAR},
+      </if>
+      <if test="registered != null">
+        #{registered,jdbcType=VARCHAR},
+      </if>
+      <if test="politicalOutlook != null">
+        #{politicalOutlook,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null">
+        #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="skill != null">
+        #{skill,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="workExperience != null">
+        #{workExperience,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="callMe != null">
+        #{callMe,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tdd.entity.AboutMe">
+    update about_me
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="currentState != null">
+        current_state = #{currentState,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="workDate != null">
+        work_date = #{workDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="liveCity != null">
+        live_city = #{liveCity,jdbcType=VARCHAR},
+      </if>
+      <if test="registered != null">
+        registered = #{registered,jdbcType=VARCHAR},
+      </if>
+      <if test="politicalOutlook != null">
+        political_outlook = #{politicalOutlook,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null">
+        photo = #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="skill != null">
+        skill = #{skill,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="workExperience != null">
+        work_experience = #{workExperience,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="callMe != null">
+        call_me = #{callMe,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tdd.entity.AboutMe">
+    update about_me
+    set user_name = #{userName,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      current_state = #{currentState,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      work_date = #{workDate,jdbcType=TIMESTAMP},
+      live_city = #{liveCity,jdbcType=VARCHAR},
+      registered = #{registered,jdbcType=VARCHAR},
+      political_outlook = #{politicalOutlook,jdbcType=VARCHAR},
+      photo = #{photo,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      skill = #{skill,jdbcType=LONGVARCHAR},
+      work_experience = #{workExperience,jdbcType=LONGVARCHAR},
+      call_me = #{callMe,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

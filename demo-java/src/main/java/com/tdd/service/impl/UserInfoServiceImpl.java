@@ -23,13 +23,12 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     @Override
     public Integer addUserInfo(UserInfo userInfo) {
-
-
         UserInfo userInfo1 = userInfoMapper.selectByNickName(userInfo);
         if(null != userInfo1) {
-            return 2;
+            return userInfo1.getId();
         }else{
-            return userInfoMapper.insertUserInfo(userInfo);
+            userInfoMapper.insertUserInfo(userInfo);
+            return userInfo.getId();
         }
 
     }
