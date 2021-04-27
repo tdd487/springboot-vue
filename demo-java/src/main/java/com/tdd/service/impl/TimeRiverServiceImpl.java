@@ -33,6 +33,16 @@ public class TimeRiverServiceImpl implements TimeRiverService {
     }
 
     @Override
+    public Integer updateTimeRiverById(TimeRiver timeRiver) {
+        return timeRiverMapper.updateByPrimaryKeySelective(timeRiver);
+    }
+
+    @Override
+    public Integer deleteById(Integer id) {
+        return timeRiverMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
     public List<TimerRiverDTO> findByType(TimeRiver timeRiver) {
         List<TimeRiver>  timeRivers = timeRiverMapper.selectByType(timeRiver.getType());
         List<TimerRiverDTO> timerRiverDTOS = new ArrayList<>();

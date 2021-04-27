@@ -38,6 +38,20 @@ public class TimeRiverController {
         return new Result(200,"",timeRiverService.addTimeRiver(timerRiver));
     }
     //时间长河
+    @PostMapping("/wormer_api/updateTimeRiver")
+    public Result updateTimeRiver(@RequestBody TimerRiverDTO timerRiverDTO){
+
+        TimeRiver timerRiver = new TimeRiver();
+        BeanUtils.copyProperties(timerRiverDTO,timerRiver);
+        timerRiver.setCreateTime(new Date());
+        return new Result(200,"",timeRiverService.updateTimeRiverById(timerRiver));
+    }
+    //时间长河
+    @PostMapping("/wormer_api/delTimeRiver")
+    public Result delTimeRiver(@RequestBody TimerRiverDTO timerRiverDTO){
+        return new Result(200,"",timeRiverService.deleteById(timerRiverDTO.getId()));
+    }
+    //时间长河
     @PostMapping("/wormer_api/findTimeRiver")
     public Result findTimeRiver(@RequestBody TimerRiverDTO timerRiverDTO){
         TimeRiver timerRiver = new TimeRiver();

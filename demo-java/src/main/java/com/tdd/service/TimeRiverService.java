@@ -14,6 +14,10 @@ public interface TimeRiverService {
 
     Integer addTimeRiver(TimeRiver timeRiver);
 
+    Integer updateTimeRiverById(TimeRiver timeRiver);
+
+    Integer deleteById(Integer id);
+
     List<TimerRiverDTO> findByType(TimeRiver timeRiver);
 
 }
